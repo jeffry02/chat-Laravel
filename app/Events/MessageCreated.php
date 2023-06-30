@@ -19,7 +19,7 @@ class MessageCreated implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            'messages'
+            'messages',
         ];
     }
 }

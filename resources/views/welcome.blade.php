@@ -52,7 +52,7 @@
     document.querySelector('.form').addEventListener('submit', async function (e) {
         e.preventDefault()
 
-        const resp = await fetch('{{ action([\App\Http\Controllers\MessageController::class, 'store']) }}', {
+        const resp = await fetch('{{ action([\App\Http\Controllers\Api\MessageController::class, 'store']) }}', {
             body: new FormData(e.target),
             method: 'post',
         });
