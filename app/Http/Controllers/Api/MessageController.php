@@ -33,7 +33,11 @@ class MessageController extends Controller
                 ->get();
         }else{
             $messages = Message::query()
-                ->where('channel_id', $receiver)
+                ->with('sender')
+                ->where(function (Builder  $builder) use ($receiver) {
+                    $builder->where('channel_id', $receiver );
+                })
+//                ->where('channel_id', $receiver)
                 ->orderBy('created_at')
                 ->get();
         }
